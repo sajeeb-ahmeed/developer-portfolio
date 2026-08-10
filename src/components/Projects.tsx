@@ -14,8 +14,11 @@ export default function Projects({ profile }: { profile: Profile }) {
   const visibleRepos = useMemo(() => {
     if (!repos) return [];
     const filtered = showForks ? repos : repos.filter((r) => !r.fork);
-    return filtered
-      .sort((a, b) => b.stars - a.stars || (a.updatedAt < b.updatedAt ? 1 : -1))
+    // The heading promises "Latest repositories", so order by recency.
+    // (Sorting by stars first buried every recent repo behind old 2-star ones.)
+    // Copy before sorting — .sort() mutates in place, and `repos` is state.
+    return [...filtered]
+      .sort((a, b) => (a.updatedAt < b.updatedAt ? 1 : -1))
       .slice(0, 6);
   }, [repos, showForks]);
 

@@ -16,8 +16,11 @@ export const profile: Profile = {
   location: 'Dhaka, Bangladesh',
   summary:
     'Web & SEO Executive and Full-Stack Web Developer with 4+ years of experience building scalable web applications, optimizing digital experiences, and driving online growth. Expertise spans full-stack development (MERN & Java), technical SEO, enterprise web solutions, and digital brand communications — solving complex technical challenges and building products that combine excellent user experience with measurable business impact.',
-  avatarUrl: 'https://media.licdn.com/dms/image/v2/D5603AQE0icQoo9yNwQ/profile-displayphoto-crop_800_800/B56Z9JDOxULAAI-/0/1783637012522?e=1785369600&v=beta&t=yv9dWLH3KVYl9FenRTFgmreaZxtzcJdgYIVw-PVG5R8',
-  aboutPhotoUrl: 'https://media.licdn.com/dms/image/v2/D5603AQE0icQoo9yNwQ/profile-displayphoto-crop_800_800/B56Z9JDOxULAAI-/0/1783637012522?e=1785369600&v=beta&t=yv9dWLH3KVYl9FenRTFgmreaZxtzcJdgYIVw-PVG5R8',
+  // NOTE: the previous LinkedIn CDN URLs were expiring signed links (e=1785369600,
+  // i.e. 30 Jul 2026) and started returning 403 — the photo was broken site-wide.
+  // GitHub's avatar endpoint is stable and does not expire.
+  avatarUrl: 'https://avatars.githubusercontent.com/u/85227514?v=4',
+  aboutPhotoUrl: 'https://avatars.githubusercontent.com/u/85227514?v=4',
   resumeUrl: 'https://drive.google.com/file/d/1mG9AKfaklzpoAzFyQE-D8Us9Kq07Vw45/view?usp=sharing',
   available: true,
   social: {
@@ -169,21 +172,47 @@ export const profile: Profile = {
   ],
 
   projects: [
-     {
-      id: 'proj',
-      name: 'Blitzkrieg',
-      description: 'Group of Company Protfolio Website',
-      tags: ['Web Development'],
-      liveUrl: 'https://blitzkrieg.com.co/',
-      sourceUrl: 'Not Avaiable for all',
+    {
+      id: 'proj-harrington-fieldops',
+      name: 'Harrington Field Operations',
+      description:
+        "Internal field-sales platform for Harrington's Dhaka team: role-based employee access, canonical client records with one-client-one-catalog enforcement, visit logging, follow-ups, full audit history, and management reporting. Built on MongoDB multi-document transactions so client registration and catalog allocation stay consistent, with GridFS-backed private photo storage and signed HTTP-only session cookies.",
+      tags: ['Full-Stack', 'Next.js', 'TypeScript', 'MongoDB'],
+      // Internal company system — no public demo. Source link intentionally omitted;
+      // see note in the handover if you'd rather link the repo publicly.
     },
-       {
-      id: 'proj',
+    {
+      id: 'proj-harrington-site',
       name: 'Harrington',
-      description: 'Group of Company Protfolio Website',
-      tags: ['Web Development'],
+      description:
+        'Corporate website for the Harrington group — product-led marketing site covering the sanitaryware range, built and maintained in-house with a focus on page performance and technical SEO.',
+      tags: ['Web Development', 'SEO'],
       liveUrl: 'https://harrington.com.co/',
-      sourceUrl: 'Not Avaiable for all',
+    },
+    {
+      id: 'proj-blitzkrieg-site',
+      name: 'Blitzkrieg Group',
+      description:
+        'Group-of-companies corporate website presenting the parent brand and its business units, with a structured content model and search-optimised, responsive layouts.',
+      tags: ['Web Development', 'SEO'],
+      liveUrl: 'https://blitzkrieg.com.co/',
+    },
+    {
+      id: 'proj-friends-dream',
+      name: 'Friends Dream Society',
+      description:
+        'Management system for a cooperative society, rebuilt from a mock-data prototype into a full MERN application — JWT authentication, role-based admin access, and seeded member and settings data persisted on MongoDB.',
+      tags: ['Full-Stack', 'MERN', 'MongoDB'],
+      sourceUrl: 'https://github.com/sajeeb-ahmeed/fdsc',
+    },
+    {
+      id: 'proj-e-exam',
+      name: 'CHTDB E-Exam Platform',
+      description:
+        'Online examination platform built to support the CHTDB ICT training programme — trainees sit timed exams in the browser while instructors grade through a dedicated, role-gated teacher interface.',
+      tags: ['Full-Stack', 'React', 'EdTech'],
+      liveUrl: 'https://e-exam-tan.vercel.app',
+      sourceUrl: 'https://github.com/sajeeb-ahmeed/e-exam',
     },
     {
       id: 'proj-1',
