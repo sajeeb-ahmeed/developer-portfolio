@@ -3,6 +3,7 @@ export interface SocialLinks {
   github: string;
   twitter?: string;
   email: string;
+  phone?: string;
   website?: string;
 }
 

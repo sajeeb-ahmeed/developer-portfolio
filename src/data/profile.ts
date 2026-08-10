@@ -11,9 +11,9 @@ import type { Profile } from '../types';
  * LinkedIn profile changes — the whole site updates from here.
  */
 export const profile: Profile = {
-  name: 'Sajeeb Ahmed',
+  name: 'Mohamed Sajib (Sajeeb Ahmed)',
   title: 'Web & SEO Executive · Full-Stack Web Developer',
-  location: 'Dhaka, Bangladesh',
+  location: 'Tejgaon, Dhaka, Bangladesh',
   summary:
     'Web & SEO Executive and Full-Stack Web Developer with 4+ years of experience building scalable web applications, optimizing digital experiences, and driving online growth. Expertise spans full-stack development (MERN & Java), technical SEO, enterprise web solutions, and digital brand communications — solving complex technical challenges and building products that combine excellent user experience with measurable business impact.',
   // NOTE: the previous LinkedIn CDN URLs were expiring signed links (e=1785369600,
@@ -21,13 +21,14 @@ export const profile: Profile = {
   // GitHub's avatar endpoint is stable and does not expire.
   avatarUrl: 'https://avatars.githubusercontent.com/u/85227514?v=4',
   aboutPhotoUrl: 'https://avatars.githubusercontent.com/u/85227514?v=4',
-  resumeUrl: 'https://drive.google.com/file/d/1mG9AKfaklzpoAzFyQE-D8Us9Kq07Vw45/view?usp=sharing',
+  resumeUrl: 'https://drive.google.com/file/d/1_eGJ9YjbgHTWXermQmJrtp134vrWBTFy/view?usp=sharing',
   available: true,
   social: {
     linkedin: 'https://www.linkedin.com/in/sajeeb-ahmed/',
     github: 'https://github.com/sajeeb-ahmeed',
     twitter: 'https://twitter.com/j_eeb',
     email: 'sajeeb.web@gmail.com',
+    phone: '+8801748402018',
     website: 'https://sajeeb-ahmeed.netlify.app/',
   },
 
@@ -149,16 +150,30 @@ export const profile: Profile = {
   ],
 
   skills: [
-    { category: 'Full-Stack Development', items: ['React.js', 'JavaScript (ES6+)', 'Node.js', 'Express.js', 'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap'], level: 92 },
+    { category: 'Full-Stack Development', items: ['React.js', 'JavaScript (ES6+)', 'TypeScript', 'Node.js', 'Express.js', 'HTML5', 'CSS3', 'Sass', 'Tailwind CSS', 'Bootstrap 5'], level: 92 },
     { category: 'Enterprise & Backend', items: ['Java', 'JSP', 'J2EE', 'Liferay DXP', 'REST APIs'], level: 85 },
     { category: 'Databases', items: ['MySQL', 'MongoDB', 'Oracle Database'], level: 80 },
     { category: 'SEO & Web Performance', items: ['Technical SEO', 'Google Analytics', 'Google Search Console', 'Performance Optimization'], level: 85 },
     { category: 'CMS & Platforms', items: ['WordPress', 'Enterprise Content Management','Liferay DXP 7.4'], level: 75 },
-    { category: 'Tools & DevOps', items: ['Git', 'GitHub', 'Docker', 'Webpack', 'Linux', 'Figma'], level: 88 },
-    { category: 'Other', items: ['AI-Assisted Development', 'Digital Marketing', 'Brand Communications', 'UI/UX'], level: 78 },
+    { category: 'Tools & DevOps', items: ['Git', 'GitHub', 'Docker', 'Vite', 'Webpack', 'Vercel', 'Firebase', 'Linux', 'VS Code'], level: 88 },
+    { category: 'Design Tools', items: ['Figma', 'Canva', 'Adobe Express', 'Sketch', 'VistaCreate'], level: 75 },
+    { category: 'Other', items: ['AI-Assisted Development', 'Prompt Engineering', 'Digital Marketing', 'Brand Communications', 'UI/UX'], level: 78 },
   ],
 
-  certificates: [],
+  certificates: [
+    {
+      id: 'cert-1',
+      title: 'Full Stack Web Development',
+      issuer: 'Programming Hero',
+      date: '2021',
+    },
+    {
+      id: 'cert-2',
+      title: 'JavaScript Certification',
+      issuer: 'freeCodeCamp',
+      date: '2020',
+    },
+  ],
 
   awards: [
     {

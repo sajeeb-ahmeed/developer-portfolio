@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { FiMail, FiSend } from 'react-icons/fi';
+import { FiMail, FiPhone, FiSend } from 'react-icons/fi';
 import type { Profile } from '../types';
 import SectionHeading from './SectionHeading';
 
@@ -48,6 +48,14 @@ export default function Contact({ profile }: { profile: Profile }) {
           <a href={`mailto:${profile.social.email}`} className="flex items-center gap-2 text-white/80 hover:text-accent">
             <FiMail /> {profile.social.email}
           </a>
+          {profile.social.phone && (
+            <a
+              href={`tel:${profile.social.phone.replace(/\s/g, '')}`}
+              className="mt-3 flex items-center gap-2 text-white/80 hover:text-accent"
+            >
+              <FiPhone /> {profile.social.phone}
+            </a>
+          )}
           <p className="text-white/40 uppercase tracking-wide text-xs mt-6 mb-3">Based in</p>
           <p className="text-white/70">{profile.location}</p>
         </div>
