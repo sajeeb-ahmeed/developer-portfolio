@@ -29,7 +29,7 @@ export const profile: Profile = {
     twitter: 'https://twitter.com/j_eeb',
     email: 'sajeeb.web@gmail.com',
     phone: '+8801748402018',
-    website: 'https://sajeeb-ahmeed.netlify.app/',
+    website: 'https://sajib.dev.cv/',
   },
 
   stats: [
