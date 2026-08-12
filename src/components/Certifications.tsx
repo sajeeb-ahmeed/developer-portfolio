@@ -50,6 +50,25 @@ export default function Certifications({ profile }: { profile: Profile }) {
                   <p className="text-white/80 font-medium">{award.title}</p>
                   <p className="text-white/40">{award.issuer} · {award.date}</p>
                   {award.description && <p className="text-white/50 mt-1">{award.description}</p>}
+                  {award.imageUrl && (
+                    <a
+                      href={award.imageUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-3 inline-block group"
+                      aria-label={`View full-size photo of the ${award.title}`}
+                    >
+                      <img
+                        src={award.imageUrl}
+                        alt={`${award.title} plaque awarded by ${award.issuer}`}
+                        width={450}
+                        height={800}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full max-w-[180px] rounded-lg border border-white/10 transition group-hover:border-accent/50"
+                      />
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

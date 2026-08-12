@@ -46,6 +46,7 @@ export interface Award {
   issuer: string;
   date: string;
   description?: string;
+  imageUrl?: string;
 }
 
 export interface Project {

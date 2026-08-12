@@ -183,6 +183,7 @@ export const profile: Profile = {
       date: '2026',
       description:
         'Honored for outstanding performance delivering Web Design & Development training, mentoring aspiring developers, and achieving excellent learner outcomes.',
+      imageUrl: '/awards/best-instructor-chtdb.jpg',
     },
   ],
 
