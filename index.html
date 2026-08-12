@@ -28,6 +28,103 @@
     <meta name="twitter:title" content="Mohamed Sajib (Sajeeb Ahmed) — Web &amp; SEO Executive · Full-Stack Web Developer" />
     <meta name="twitter:description" content="4+ years building scalable MERN and Java web applications, enterprise platforms, and technical SEO that drives measurable growth." />
     <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/85227514?v=4" />
+
+    <!--
+      Structured data. Deliberately lives in the static HTML rather than being
+      injected by React, so it stays readable without executing JavaScript.
+
+      alternateName carries the spellings people actually type. Search engines
+      use them to resolve different queries to the same entity, which is the
+      main lever for ranking on personal-name searches.
+
+      Keep in sync with src/data/profile.ts.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://sajib.dev.cv/#person",
+            "name": "Mohamed Sajib",
+            "alternateName": [
+              "Sajeeb Ahmed",
+              "Sajib Ahmed",
+              "Md Sajib",
+              "MD Sajib Miah",
+              "Sajib Miah",
+              "Mohamed Sajib Miah",
+              "Sajeeb Ahmeed",
+              "Sajib",
+              "Sajeeb"
+            ],
+            "jobTitle": "Web & SEO Executive, Full-Stack Web Developer",
+            "description": "Full-Stack Web Developer and Web & SEO Executive based in Dhaka, Bangladesh, with 4+ years building MERN and Java web applications, enterprise platforms and technical SEO.",
+            "url": "https://sajib.dev.cv/",
+            "image": "https://avatars.githubusercontent.com/u/85227514?v=4",
+            "email": "mailto:sajeeb.web@gmail.com",
+            "telephone": "+8801748402018",
+            "nationality": "Bangladeshi",
+            "knowsLanguage": ["English", "Bengali"],
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Tejgaon",
+              "addressLocality": "Dhaka",
+              "postalCode": "1215",
+              "addressCountry": "BD"
+            },
+            "sameAs": [
+              "https://github.com/sajeeb-ahmeed",
+              "https://www.linkedin.com/in/sajeeb-ahmed/",
+              "https://twitter.com/j_eeb",
+              "https://sajeeb-ahmeed.netlify.app/"
+            ],
+            "knowsAbout": [
+              "React.js",
+              "MERN Stack Development",
+              "Node.js",
+              "Express.js",
+              "TypeScript",
+              "JavaScript",
+              "Java",
+              "Liferay DXP",
+              "MongoDB",
+              "MySQL",
+              "Next.js",
+              "Tailwind CSS",
+              "Technical SEO",
+              "Search Engine Optimization",
+              "Frontend Development",
+              "Web Application Development"
+            ],
+            "alumniOf": {
+              "@type": "CollegeOrUniversity",
+              "name": "National University of Bangladesh"
+            },
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Harrington (Blitzkrieg Group)"
+            },
+            "award": "Best Instructor Award — CHTDB ICT Skills Development Project (2026)"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://sajib.dev.cv/#website",
+            "url": "https://sajib.dev.cv/",
+            "name": "Mohamed Sajib (Sajeeb Ahmed) — Full-Stack Developer Portfolio",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://sajib.dev.cv/#person" }
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://sajib.dev.cv/#profilepage",
+            "url": "https://sajib.dev.cv/",
+            "isPartOf": { "@id": "https://sajib.dev.cv/#website" },
+            "about": { "@id": "https://sajib.dev.cv/#person" }
+          }
+        ]
+      }
+    </script>
   </head>
   <body class="bg-ink text-white">
     <div id="root"></div>
