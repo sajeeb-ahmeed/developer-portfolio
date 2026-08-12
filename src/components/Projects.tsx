@@ -3,16 +3,22 @@ import { FiExternalLink, FiGithub } from 'react-icons/fi';
 import { getRepos } from '../services/api';
 import { useFetch } from '../hooks/useFetch';
 import ProjectCard from './ProjectCard';
-import Loader from './Loader';
 import SectionHeading from './SectionHeading';
+import { generatedRepos } from '../data/repos.generated';
 import type { Profile } from '../types';
 
 export default function Projects({ profile }: { profile: Profile }) {
-  const { data: repos, loading, error } = useFetch(getRepos, []);
+  const { data: liveRepos } = useFetch(getRepos, []);
   const [showForks, setShowForks] = useState(false);
 
+  // Prefer the live API when the visitor has quota, otherwise show the list
+  // captured at build time. GitHub allows 60 anonymous requests/hour per IP,
+  // so visitors on shared or mobile networks routinely get a 403 -- they used
+  // to see a red error where the work should be. This also means the repos
+  // are present during the prerender pass, so they end up in the static HTML.
+  const repos = liveRepos ?? generatedRepos;
+
   const visibleRepos = useMemo(() => {
-    if (!repos) return [];
     const filtered = showForks ? repos : repos.filter((r) => !r.fork);
     // The heading promises "Latest repositories", so order by recency.
     // (Sorting by stars first buried every recent repo behind old 2-star ones.)
@@ -64,7 +70,7 @@ export default function Projects({ profile }: { profile: Profile }) {
         <div>
           <span className="text-sm font-semibold uppercase tracking-widest text-accent">More on GitHub</span>
           <h3 className="mt-3 font-display text-2xl font-semibold text-white">Latest repositories</h3>
-          <p className="mt-2 text-white/50 text-sm">Pulled live from the public GitHub API — no hardcoded list to go stale.</p>
+          <p className="mt-2 text-white/50 text-sm">Straight from GitHub, refreshed on every deploy.</p>
         </div>
         <label className="flex items-center gap-2 text-sm text-white/50">
           <input type="checkbox" checked={showForks} onChange={(e) => setShowForks(e.target.checked)} className="accent-accent" />
@@ -72,19 +78,19 @@ export default function Projects({ profile }: { profile: Profile }) {
         </label>
       </div>
 
-      {loading && <Loader label="Fetching latest repositories from GitHub…" />}
-      {error && (
-        <p className="text-red-400 text-sm">
-          Couldn't load repositories right now ({error}). GitHub's public API has a 60 requests/hour limit for anonymous requests.
-        </p>
-      )}
-
-      {!loading && !error && (
+      {/* No loading or error branch: the build-time list is always available,
+          so there is nothing to wait for and nothing to apologise for. A failed
+          live call just leaves the baked data on screen. */}
+      {visibleRepos.length > 0 ? (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {visibleRepos.map((repo) => (
             <ProjectCard key={repo.id} repo={repo} />
           ))}
         </div>
+      ) : (
+        <p className="text-white/50 text-sm">
+          Repositories aren't available right now — see the full list on GitHub below.
+        </p>
       )}
 
       <div className="mt-8 text-center">
